@@ -234,6 +234,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 %     \end{flushright}
 % }
 \RequirePackage{bm}
+\RequirePackage{amsmath}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}%
