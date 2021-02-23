@@ -1,0 +1,53 @@
+\section{The Logistic Classifier}
+The logistic regression model is a binary classification problem.
+
+Linear regression for binary classification is not a viable option as the decision boundary will not separate the two categories correctly because of the nature of the mean square error.
+
+The classifier should output either $1$ or $0$, depending on the data.
+
+For the classification hypothesis representation, we have:
+
+\[
+    h_\theta(x) = g(\theta^Tx) = \frac{1}{1+e^{-\theta^Tx}}
+\]
+\bigskip
+
+This is the sigmoid function (the logistic function).
+
+The function is used as such:
+
+\begin{equation}
+    \left\{\begin{matrix}
+        1 & \text{if } h_\theta(x) > 0.5 \\ 
+        0 & \text{otherwise}
+        \end{matrix}\right.
+\end{equation}
+
+\subsection{Logistic Classifier for Higher-Order Terms}
+As in polynomial regression, the logistic classifier can be used for higher order terms by adding higher order terms. I.e. $g(\theta_0 + \theta_1x_1+\theta_3x_1^2+\theta_4x_2^2)$
+
+\section{Problems with the Linear Regression Cost Function}
+The mean square error function results in a convex PDF when given it is given linear values. This is not the case for logistic regression. This means that the MSE would most likely only find a local minimum, not a global one.
+
+\section{Logistic Regresssion Cost Function}
+\begin{equation}
+    Cost(h_\theta(x), y) = 
+    \left\{\begin{matrix}
+        -ln(h_\theta(x)) & \text{if } y=1 \\ 
+        -ln(1-h_\theta(x)) & \text{if } y=0
+        \end{matrix}\right.
+\end{equation}
+
+This can be rewritten into a single function:
+
+\begin{equation}
+    Cost(h_\theta(x), y) = -y ln(h_\theta(x)) - (1-y)ln(1-h_\theta(x))
+\end{equation}
+
+\section{Process}
+The process forwards is the same as in the linear regression chapter.
+
+\section{Multiclass Classifier for Logistic Regression}
+Extending the logistic regression from a binary classifier to a multiclass classifier can be done in a "one vs. all" classification.
+
+This means that the algorithm is conducted multiple times, each time changing which class is the positive class (where all the other classes are negative).
