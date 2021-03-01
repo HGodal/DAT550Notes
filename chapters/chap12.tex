@@ -1,0 +1,41 @@
+\section{Addressing Overfitting}
+Multiple strategies can be used to check if overfitting occurs:
+\begin{itemize}
+    \item Plot the hypothesis to check for overfitting. Might not always work.
+    \item Reduce the number of features
+    \item Regularization
+\end{itemize}
+
+\section{Regularization}
+
+\begin{itemize}
+    \item Small values for parameters correspond to a simpler hypothesis (you effectively get rid of some of the terms).
+    \item A simpler hypothesis is less prone to overfitting.
+\end{itemize}
+
+\subsection{Cost function optimalization}
+We can penalize some of the higher-order $\theta$ parameters and make them very small:
+
+\[
+    min\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}(x_i)-y_i\right)^2 + 1000\theta_3^2 + 1000\theta_4^2
+\]
+
+\subsection{Regularization on features}
+Unlike in a polynomial, we don't know which parameters are the high-order terms. The solution for this is to penalize all the parameters.
+
+By convention, we don't penalize $\theta_0$, but all other parameters, with the regularization parameter $\lambda$.
+
+\[
+    J(\theta) = \frac{1}{2m}\left[\sum_{i=1}^{m}\left(h_{\theta}(x_i)-y_i\right)^2 + \lambda\sum_{j=1}^{n}\theta_j^2\right]
+\]
+
+\subsection{Regularized Gradient Descent}
+\[
+    \theta_j := \theta_j - \alpha\left[\frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}(x_i)-y_i\right)x_i^{(j)} + \frac{\lambda}{m}\theta_j\right]
+\]
+
+\[
+    \theta_j := \theta_j\left(1-\alpha\frac{\lambda}{m}\right) - \alpha\frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}(x_i)-y_i\right)x_i^{(j)}
+\]
+
+Given a typical small learning rate $\lambda$ and a large number of terms $m$, we see that $\theta_j$ is multiplied by a value close to $1$ (around $0.95-0.99$).
