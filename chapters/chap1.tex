@@ -64,9 +64,9 @@ sample data, known as "training data", in order to make predictions or decisions
 without being explicitly programmed to do so. Another way to think about it as 
 an abstract mathematical formula.
 
-\begin{equation}
+\begin{equation*}
     f: \text{input} \rightarrow \text{output}
-\end{equation}
+\end{equation*}
 
 The abstract function $f$ can be any regression-, classification-, association
 or calculation problem or anything else that can be thought of as the formula
@@ -77,6 +77,12 @@ the programmer have access to the input and the output
 and the computer estimates $f$. I.e. the programmer collects inputs and outputs
 and uses the computer to find the rules. 
 
+It should be stated that in some cases output is not used in machine learning. 
+There are two different kinds of algorithms, one that learns from outputs called
+supervised learning but there are also algorithms that do not learn from data 
+tagged by humans but that learn patterns from the data itself.
+These are called unsupervised learning algorithms. In those cases a metric or 
+criterion is used instead and this is used to learn the rules.
 \newpage
 \section{Data Mining or Machine Learning}
 
@@ -89,6 +95,7 @@ Data mining is the process of discovering patterns in large data sets involving 
 
 
 \section{Data Mining Motivation}
+
 \subsection{Commercial viewpoint}
 Lots of data is being collected and warehoused, such as web data, purchases, and transactions.
 Computation power has become cheap and powerful, and the competitive pressure is strong.
@@ -134,7 +141,40 @@ statistic machine learning, decision support, and others such as visualisation a
         \end{itemize}
     \end{itemize}
 \end{itemize}
+\section{Supervised Learning}
+\begin{equation*}
+    f: \text{input} \rightarrow \text{output}
+\end{equation*}
+Supervised learning follow the equation above where it uses the input and
+output of example data to estimate the decision function $f$. This is in contrast
+with traditional programming where the programmer designed the rules or decision
+function $f$ and performed calculations to get an output based on inputs.
+Different algorithms in the class of supervised learning are in essence, just 
+different ways of estimating $f$. $f$ can have many possible configurations and
+parameters and selecting appropriate $f$ estimation methods and tuning the 
+correct parameters of $f$ are the main workload in supervised machine learning.
+The terminology used in these cases are \textbf{hypothesis space} for $f$ and 
+its possible estimation methods and parameters. Constraining the hypothesis 
+space must be done to find appropriate algorithms. The parameters that the 
+user manually have to change and give as input to the algorithm is called
+\textbf{hyperparameters}. They are called such because these are parameters
+the model itself does not have access to. The parameters the model itself tune 
+we call \textbf{model parameters}. The hypothesis space is therefore the set of
+hyperparameters and model parameters. 
 
+\section{Unsupervised Learning}
+\begin{itemize}
+    \item Unsupervised learning includes unlabeled data
+    \item One way of doing this would be to cluster data into to groups
+    \begin{itemize}
+        \item Group data points which are similar together, while separating 
+        dissimilar items as much as possible
+        \item This is a clustering algorithm
+    \end{itemize}
+\end{itemize}
+
+
+\section{Classification}
 \section{Regression}
 \begin{enumerate}
     \item Given a set of data points/instances along with “correct” answers or 
@@ -147,16 +187,6 @@ statistic machine learning, decision support, and others such as visualisation a
     \item The algorithm should produce more right answers (goal)
 \end{enumerate}
 
-\section{Unsupervised Learning}
-\begin{itemize}
-    \item Unsupervised learning includes unlabeled data
-    \item One way of doing this would be to cluster data into to groups
-    \begin{itemize}
-        \item Group data points which are similar together, while separating 
-        dissimilar items as much as possible
-        \item This is a clustering algorithm
-    \end{itemize}
-\end{itemize}
 
 \section{Association Rule Mining}
 \begin{itemize}
