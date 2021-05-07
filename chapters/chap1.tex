@@ -179,6 +179,16 @@ been labeled. These methods must use other metrics than labels to estimate the
 the decision function $f$. 
 
 \section{Classification}
+
+Given a population $P$ with subpopulations $Y$ and a set of attributes for 
+each object in the population $X$, a decision function $f$ must be estimated 
+that is able to capture the true state of nature and correctly identify
+the correct subpopulation of each object. 
+
+\begin{equation*}
+    f: \underset{X \in P}{X} \rightarrow Y
+\end{equation*}
+
 \section{Regression}
 \begin{enumerate}
     \item Given a set of data points/instances along with “correct” answers or 
@@ -191,6 +201,14 @@ the decision function $f$.
     \item The algorithm should produce more right answers (goal)
 \end{enumerate}
 
+Given a continious variable $X$ with another continious variable $Y$ 
+amd a set of observations $D$, a decision function $f$ must be estimated 
+that is able to capture the true state of nature and correctly use $X$ to 
+predict the corresponding value of $Y$.  
+
+\begin{equation*}
+    \underset{X,Y \in D}{f: X \rightarrow Y}
+\end{equation*}
 
 \section{Association Rule Mining}
 \begin{itemize}
@@ -209,4 +227,3 @@ Such rules can be used for marketing and sales promotion. Rule mining can also b
     \item Data quality
     \item Evolving/streaming data
 \end{itemize}
-
