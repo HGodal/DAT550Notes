@@ -217,7 +217,7 @@ a real-valued function that quantifies the similarity between two objects.
 Although no single definition of a similarity measure exists, usually such 
 measures are in some sense the inverse of distance metrics: they take on large 
 values for similar objects and either zero or a negative value for very 
-dissimilar objects.\cite{enwiki:similarity}
+dissimilar objects. \cite{enwiki:similarity}
 
 \begin{itemize}
     \item Similarity
@@ -268,6 +268,10 @@ the $k_th$ attributes (components) or data objects $p$ and $q$.
 
 \begin{theo}[Euclidean Distance]{theo:theo1}
 \label{eq:euclidean-distance}
+The distance between two points in Euclidean space 
+is the length of a line segment between the two points. It can be calculated 
+from the Cartesian coordinates of the points using the Pythagorean theorem. 
+In $n$ dimensions:
     \[
         distance = \sqrt{\sum_{k=1}^{n}(p_k-q_k)^2}
     \]
@@ -348,7 +352,7 @@ Let's define:
 \subsection{Simple Matching Coefficient}
 
 \begin{equation}
-    SMC = \frac{Number of matches}{Number of attributes}
+    SMC = \frac{\text{Number of matches}}{\text{Number of attributes}}
 \end{equation}
 \begin{equation}
     SMC = \frac{M_{00} + M_{11}}{M_{01} + M_{10} + M_{00} + M_{11}}
@@ -360,7 +364,7 @@ Let's define:
 The Jaccard Similarity/Coefficient is used for categorical attributes and sets.
 
 \begin{equation}
-    J = \frac{Number of M_{11}}{Number of non-both-zero attributes}
+    J = \frac{\text{Number of } M_{11}}{\text{Number of non-both-zero attributes}}
 \end{equation}
 \begin{equation}
     J = \frac{M_{11}}{M_{01} + M_{10} + M_{11}}
@@ -374,7 +378,7 @@ The Jaccard Similarity/Coefficient is used for categorical attributes and sets.
 If $\bm{A}$ and $\bm{B}$ are two documented vectors, then
 
 \begin{equation}
-    similarity = \cos(\theta) = \frac{\bm{A}\cdot\bm{B}}{\norm{\bm{A}} \norm{\bm{B}}} =
+    \text{similarity} = \cos(\theta) = \frac{\bm{A}\cdot\bm{B}}{\norm{\bm{A}} \norm{\bm{B}}} =
     \frac{\sum_{i=1}^n A_i B_i}{\sqrt{\sum_{i=1}^n A_i^2} \sqrt{\sum_{i=1}^n B_i^2}}
 \end{equation}
 
@@ -405,8 +409,6 @@ Data sampling is the main technique employed for data selection.
 It is often used for both the preliminary investigation of the data and the final data analysis.
 Statisticians sample because obtaining the entire set of data of interest is too expensive or time consuming.
 Sampling is used in data mining because processing the entire set of data of interest is too expensive or time consuming.
-
-\smallskip
 A good stategy for choosing the sample size is to aim for a sample size that is 10$\%$ of the population, as long as the sample size is smaller than 1000.
 It is also important to have a large enough sample size so that all attributes/groups are represented.
 
