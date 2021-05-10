@@ -1,8 +1,6 @@
 \section{Classification Definition}
 Given a collection of records (a training set) where each record contains a set of attributes, the classification has to find a model for one particular attribute (the class) as a function of the values of other attributes.
-
 The goal is for previously unseen records to have the class attribute assigned as accurately as possible.
-
 A test set is used to determine the accuracy of the model. Usually, the given data set is divided into
 training and test sets, with the training set, used to build the model, and the test set used to validate it.
 
@@ -162,7 +160,6 @@ One process (to be done for each attribute) for finding a good split is as such:
 \subsection{Entropy}
 Entropy is a measure of the uncertainty associated with a random variable. Entropy is a splitting criterion based on information gain and measures the homogeneity of a node.
 
-
 \bigskip
 \begin{theo}[Entropy]{theo:theo12}
     \label{eq:entropy}
@@ -189,9 +186,7 @@ In the same way Gini can be used to split nodes, so can Entropy:
 \end{theo}
 
 The gain measures reduction in entropy achieved from the split. Choose the split that achieves the most reduction, that is, maximizes gain.
-
 The disadvantage is that Entropy tends to prefer splits that result in a large number of partitions, each being small but pure (overfitting).
-
 This is fixed by including the number of partitions in the equation.
 
 \bigskip
