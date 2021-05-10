@@ -1,4 +1,9 @@
 \section{Summary Statistics}
+summary statistics are used to summarize a set of observations, in order to 
+communicate the largest amount of information as simply as possible. The most 
+common types are measurements of location and spread. Below are a collection of
+examples of summary statistics.
+
 \begin{itemize}
     \item Frequency
     \item Mode
@@ -9,12 +14,33 @@
     \item Variance
 \end{itemize}
 
+\subsection{Frequency and Mode}
+The frequency of an attribute value is the percentage of time the value occurs 
+in the data set. The mode of an attribute is the most frequent attribute value.
+These metrics are often used on categorical data. 
+
+\begin{theo}[Frequency]{theo}
+    \label{eq:Frequency}
+        \[
+            \text{Frequency}(x) = N_x = \text{No of occurences of value x}
+        \]
+\end{theo}
+
+\begin{theo}[Mode]{theo}
+    \label{eq:Mode}
+        \[
+            \text{Mode}(X) = \underset{x}{\mathrm{arg max} } \text{Frequency}(x)
+        \]
+\end{theo}
+
 \begin{theo}[Mean]{theo:theo5}
     \label{eq:mean}
         \[
             mean(x) = \bar{x} = \frac{1}{m}\sum_{i=1}^m x_i
         \]
 \end{theo}
+
+
 
 \begin{theo}[Median]{theo:theo6}
     \label{eq:median}
