@@ -442,6 +442,11 @@ Types of sampling:
 
 \subsubsection{Reservoir Sampling}
 
+\textbf{The problem:}
+\medskip
+We want to perform a simple random sample (uniform random sample) on a 
+continuous stream of data of unknown size. Reservoir sampling achieves this.
+
 \begin{theo}[Reservoir Sampling]{theo:theo3}
     \label{eq:reservoir-sampling}
         Keep a reservoir of $r$ samples
@@ -456,8 +461,8 @@ Types of sampling:
             \end{enumerate}
         \end{enumerate}
 
-        This means that as $i$ increases, the probability of a new item being kept in the reservoir reduces.
-    \end{theo}
+    This means that as $i$ increases, the probability of a new item being kept in the reservoir reduces.
+\end{theo}
 
 \section{Dimensionality Reduction}
 \begin{itemize}
