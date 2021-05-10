@@ -1,3 +1,31 @@
+\section{Data Recap}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/datatypespng.png}
+    \caption{Different kinds of data.}
+    \label{fig:datatypes}
+\end{figure}
+
+Data is units of information, and in a technical perspective, data is a set
+of values of quantitative or qualitative variables about a data object. 
+Data should be understood in the context of information. Information can be 
+thought of as the resolution of uncertainty, though it's 
+exact interpretation and meaning differs in different context. Using this
+vague definition of information it becomes clear how diverse data can be.
+Just see figure \ref{fig:datatypes} for examples. 
+Everything that removes uncertainty contains information and can potentially 
+be stored and processed as data.
+
+\subsection{Difference between data and information.}
+Data and Information is often talked about interchangably but are two different
+things or rather two different levels of abstraction of the same thing. Data is 
+a structured or unstructured collection of symbols. Information resolves 
+uncertainty and does not take any particular form. Data can represent reduntant
+symbols but can be said to approach information through optimal compression. 
+One of the most common ways to structure data is to have a set of data objects
+and their attributes.
+
 \section{Attributes}
 \begin{itemize}
     \item An attribute is a property or characteristic of an object
@@ -12,7 +40,6 @@
 
 \subsection{Values}
 Attribute values are numbers or symbols assigned to an attribute.
-
 The distinction between attributes and attribute values are:
 \begin{itemize}
     \item Same attribute can be mapped to different attribute values
@@ -79,7 +106,7 @@ The distinction between attributes and attribute values are:
 Discrete attributes:
 \begin{itemize}
     \item Finite or countably infinite set of values
-    \item Often integer or binaryvariables
+    \item Often integer or binary variables
 \end{itemize}
 
 Continuous attributes:
@@ -117,28 +144,28 @@ Data that consists of a collection of records, each of which consists of a fixed
 
 \subsubsection{Data Matrix}
 If data objects have the same fixed set of numeric attributes, then the data objects can be thought of as points in a multi-dimensional space, where each dimension represents a distinct attribute.
-
 Such data set can be represented by an $m$ by $n$ matrix, where there are $m$ rows, one for each object, and $n$ columns, one for each attribute.
 
 \subsubsection{Document Data}
 Each document becomes a \textit{term} vector.
 Each term is a component (attribute) of the vector.
-
 The value of each component is the number of times the corresponding term occurs in the document.
 
 \subsubsection{Transaction Data}
 A special type of record data, where each record (transaction) involves a set of items.
-
 For example, consider a grocery store. The set of products purchased by a customer during one shopping trip constitute a transaction, while the individual products that were purchased are the items.
 
-
 \subsection{Graph Data}
-I.e. chemical structures.
+Data which can be represented as a collection of edges and vertices. 
+I.e. chemical structures. Graph data can be directional or undirectional. 
 
+\subsection{Sequential Data}
+Data in which sequence matters. One cannot permutate the data in a meaningful
+way. I.e. time series data or gene sequences.
 
-\subsection{Ordered Data}
-I.e. sequential data or gene sequences.
-
+\subsection{Spatio-temporal Data}
+This is data that represents information about both space and time. 
+I.e average temperatures in the world. 
 
 \section{Data Quality}
 
