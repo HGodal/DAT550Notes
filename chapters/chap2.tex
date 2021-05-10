@@ -186,10 +186,16 @@ Where $D$ is the colleted Data and $S$ is the true signal. Noise is therefore a
 modification of original / correct values.
 
 \subsection{Outliers}
-Outliers are data objects with characteristics that are considerably different than most of the other data objects in the data set.
+Outliers are data objects with characteristics that are considerably different 
+than most of the other data objects in the data set. Though outliers are 
+theorietically possible in many distributions (i.e Normal Distribution) outliers
+indicate some experimental error or heavy tails. In the former case one either
+discard the outliers completely or use robust statistics or in the latter case
+be careful in using statistical tests that assume normal distributions.
 
 \subsection{Missing Values}
-Reasons for missing values may be that some information is not collected or aapplicable to all cases.
+Reasons for missing values may be that some information is not collected or 
+applicable to all cases.
 
 Handling missing values can be done by:
 
@@ -197,14 +203,22 @@ Handling missing values can be done by:
     \item Eliminating data objects
     \item Estimating the missing values
     \item Ignoring the missing values during analysis
-    \item Replacing the missing values with all possible values weighted by their probabilities
+    \item Replacing the missing values with all possible values weighted by 
+    their probabilities
 \end{itemize}
 
 \subsection{Duplicate Data}
-Data set may include data objects that are duplicates, or almost duplicates of one another.
-This is a major issue when merging data from heterogenous sources.
+Data set may include data objects that are duplicates, or almost duplicates of 
+one another. This is a major issue when merging data from heterogenous sources.
 
 \section{Distance/Similarity Functions}
+In statistics and related fields, a similarity measure or similarity function is 
+a real-valued function that quantifies the similarity between two objects. 
+Although no single definition of a similarity measure exists, usually such 
+measures are in some sense the inverse of distance metrics: they take on large 
+values for similar objects and either zero or a negative value for very 
+dissimilar objects.\cite{enwiki:similarity}
+
 \begin{itemize}
     \item Similarity
     \begin{itemize}
