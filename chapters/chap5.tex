@@ -1,9 +1,9 @@
 \section{Metrics for Performance Evaluation}
 Metrics for performance evaluation focuses on the predictive capability of a model, that is, how well a model can predict the class of the test data, and evaluate the performance of the training-data.
-This focus is instead of focusing on how fast it takes to classify or build models, scalability, etc.
+Speed and scalability is not discussed in this section.
 
 \subsection{Confusion Matrix}
-This can be done through a confusion matrix:
+One of the most common ways of doing this is through the confusion matrix:
 
 \bigskip
 \begin{figure}[H]
@@ -12,7 +12,13 @@ This can be done through a confusion matrix:
     \caption{Confusion Matrix}
 \end{figure}
 
-One of the most common and widely-used metric for evaluating the performance is accuracy:
+The confusion matrix in this example has one axis for the true classes 
+and one axis for the predicted classes. A correct classification is 
+therefore on the diagonal. From this confusion almost all other metrics 
+used in classification can be derived. A confusion matrix can also contain 
+more than two classes. $TP$, $TN$, $FP$ and $FN$ is in those cases calculated
+with respect to each class. One of the most common and 
+widely-used metric for evaluating the performance is accuracy:
 
 \begin{theo}[]{theo:theo500}
     \label{eq:accuracy}
@@ -23,6 +29,10 @@ One of the most common and widely-used metric for evaluating the performance is 
 
 The accuracy metric has some limitations, among those are the ability to evaluate two-class problems where almost all instances are of class 0, while only a few are of class 1.
 The accuracy metric will result in $99.9\%$ accuracy, which is misleading if the model predicts all instances to belong to class 0.
+Accuracy can also be calculated for each individual class where one calculates
+$TP$, $TN$, $FP$ and $FN$ for the respected class as positive 
+against all other classes considered negative. This may help combat some of
+the limitations from using overall accuracy.
 
 \subsection{Cost Matrix}
 
@@ -54,15 +64,15 @@ This results in the following equation:
 Some cost-sensitive measures that are preferred over accuracy:
 
 \begin{equation}
-    Precision(p) = \frac{TP}{TP+FP}
+    \text{Precision}(p) = \frac{TP}{TP+FP}
 \end{equation}
 
 \begin{equation}
-    Recall(r) = \frac{TP}{TP+FN}
+    \text{Recall}(r) = \frac{TP}{TP+FN}
 \end{equation}
 
 \begin{equation}
-    F-measure(F) = \frac{2TP}{2TP+FP+FN}
+    \text{F-measure}(F) = \frac{2TP}{2TP+FP+FN}
 \end{equation}
 
 \begin{itemize}
@@ -72,7 +82,7 @@ Some cost-sensitive measures that are preferred over accuracy:
 \end{itemize}
 
 \begin{equation}
-    Weighted_Accuracy = \frac{\omega_1 TP + \omega_4 TN}{\omega_1 TP + \omega_2 FN + \omega_3 FP + \omega_2 TN}
+    \text{Weighted Accuracy} = \frac{\omega_1 TP + \omega_4 TN}{\omega_1 TP + \omega_2 FN + \omega_3 FP + \omega_2 TN}
 \end{equation}
 
 \section{Methods for Performance Evaluation}
