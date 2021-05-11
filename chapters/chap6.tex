@@ -7,6 +7,18 @@ The output variable $Y$ will have a domain $D_y$.
 \end{itemize}
 
 \subsection{Constructing a Regression Tree}
+
+We have already explored the classification algorithm of decisiont trees and how
+entropy, gini and information gain is used to calculate node impurity which is
+used to determine the splits. But what do we use when the dependent variable $Y$
+is a continious / numerical value? Most litterature use two metrics for 
+regression trees are  \textit{Least Squares} and the other 
+\textit{Least Absolute deviations}. \cite{loh2011classification} 
+In both cases the spread in the nodes is used as a metric for 
+\textit{information}, in the same way as entropy. The split that has the least
+variance in it's child nodes compared to the parent is the split that contains 
+the most information.
+
 \begin{enumerate}
     \item Find a split $(X_i, v)$ that creates two child nodes $D_L$ and $D_R$ from the parent node $D$. The split should maximize the weighted sum of the variances.
     \begin{itemize}
@@ -16,11 +28,11 @@ The output variable $Y$ will have a domain $D_y$.
 \end{enumerate}
 
 \begin{equation}
-    Weighted\_Variance = \abs{D}*Var(D) - \left(\abs{D_L}*Var(D_L) + \abs{D_R}*Var(D_R)\right)
+    \text{Weighted Variance} = \abs{D}*Var(D) - \left(\abs{D_L}*Var(D_L) + \abs{D_R}*Var(D_R)\right)
 \end{equation}
 
 \begin{equation}
-    Var(D) = \frac{1}{n}\sum_{i=1}^{\abs{D}}(y_i-\overline{y})^2
+    \text{Var}(D) = \frac{1}{n}\sum_{i=1}^{\abs{D}}(y_i-\overline{y})^2
 \end{equation}
 
 \subsubsection{Stopping a Tree}
