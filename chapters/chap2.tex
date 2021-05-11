@@ -1,3 +1,31 @@
+\section{Data Recap}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/datatypespng.png}
+    \caption{Different kinds of data.}
+    \label{fig:datatypes}
+\end{figure}
+
+Data is units of information, and in a technical perspective, data is a set
+of values of quantitative or qualitative variables about a data object. 
+Data should be understood in the context of information. Information can be 
+thought of as the resolution of uncertainty, though it's 
+exact interpretation and meaning differs in different context. Using this
+vague definition of information it becomes clear how diverse data can be.
+Just see figure \ref{fig:datatypes} for examples. 
+Everything that removes uncertainty contains information and can potentially 
+be stored and processed as data.
+
+\subsection{Difference between data and information.}
+Data and Information is often talked about interchangably but are two different
+things or rather two different levels of abstraction of the same thing. Data is 
+a structured or unstructured collection of symbols. Information resolves 
+uncertainty and does not take any particular form. Data can represent reduntant
+symbols but can be said to approach information through optimal compression. 
+One of the most common ways to structure data is to have a set of data objects
+and their attributes.
+
 \section{Attributes}
 \begin{itemize}
     \item An attribute is a property or characteristic of an object
@@ -12,7 +40,6 @@
 
 \subsection{Values}
 Attribute values are numbers or symbols assigned to an attribute.
-
 The distinction between attributes and attribute values are:
 \begin{itemize}
     \item Same attribute can be mapped to different attribute values
@@ -79,7 +106,7 @@ The distinction between attributes and attribute values are:
 Discrete attributes:
 \begin{itemize}
     \item Finite or countably infinite set of values
-    \item Often integer or binaryvariables
+    \item Often integer or binary variables
 \end{itemize}
 
 Continuous attributes:
@@ -117,39 +144,58 @@ Data that consists of a collection of records, each of which consists of a fixed
 
 \subsubsection{Data Matrix}
 If data objects have the same fixed set of numeric attributes, then the data objects can be thought of as points in a multi-dimensional space, where each dimension represents a distinct attribute.
-
 Such data set can be represented by an $m$ by $n$ matrix, where there are $m$ rows, one for each object, and $n$ columns, one for each attribute.
 
 \subsubsection{Document Data}
 Each document becomes a \textit{term} vector.
 Each term is a component (attribute) of the vector.
-
 The value of each component is the number of times the corresponding term occurs in the document.
 
 \subsubsection{Transaction Data}
 A special type of record data, where each record (transaction) involves a set of items.
-
 For example, consider a grocery store. The set of products purchased by a customer during one shopping trip constitute a transaction, while the individual products that were purchased are the items.
 
-
 \subsection{Graph Data}
-I.e. chemical structures.
+Data which can be represented as a collection of edges and vertices. 
+I.e. chemical structures. Graph data can be directional or undirectional. 
 
+\subsection{Sequential Data}
+Data in which sequence matters. One cannot permutate the data in a meaningful
+way. I.e. time series data or gene sequences.
 
-\subsection{Ordered Data}
-I.e. sequential data or gene sequences.
-
+\subsection{Spatio-temporal Data}
+This is data that represents information about both space and time. 
+I.e average temperatures in the world. 
 
 \section{Data Quality}
 
+Data Quality is important to measure, detect and improve. Data is elevated to 
+information when optimal data compression is achieved. Problems that reduce the
+quality of data threatens to damage or skew the information the data is supposed
+to represent. There are many examples of data quality problems and some of them 
+are adressed in this section.
+
 \subsection{Noise}
-Noise refers to modification of original values.
+Ultimately, Noise can be throught as $\epsilon$ in the following equation
+
+\begin{equation}
+    D = S + \epsilon
+\end{equation}
+
+Where $D$ is the colleted Data and $S$ is the true signal. Noise is therefore a 
+modification of original / correct values.
 
 \subsection{Outliers}
-Outliers are data objects with characteristics that are considerably different than most of the other data objects in the data set.
+Outliers are data objects with characteristics that are considerably different 
+than most of the other data objects in the data set. Though outliers are 
+theorietically possible in many distributions (i.e Normal Distribution) outliers
+indicate some experimental error or heavy tails. In the former case one either
+discard the outliers completely or use robust statistics or in the latter case
+be careful in using statistical tests that assume normal distributions.
 
 \subsection{Missing Values}
-Reasons for missing values may be that some information is not collected or aapplicable to all cases.
+Reasons for missing values may be that some information is not collected or 
+applicable to all cases.
 
 Handling missing values can be done by:
 
@@ -157,14 +203,25 @@ Handling missing values can be done by:
     \item Eliminating data objects
     \item Estimating the missing values
     \item Ignoring the missing values during analysis
-    \item Replacing the missing values with all possible values weighted by their probabilities
+    \item Replacing the missing values with all possible values weighted by 
+    their probabilities
 \end{itemize}
 
 \subsection{Duplicate Data}
-Data set may include data objects that are duplicates, or almost duplicates of one another.
-This is a major issue when merging data from heterogenous sources.
+Data set may include data objects that are duplicates, or almost duplicates of 
+one another. This is a major issue when merging data from heterogenous sources.
 
 \section{Distance/Similarity Functions}
+According to \cite{enwiki:similarity}:
+
+\medskip
+In statistics and related fields, a similarity measure or similarity function is 
+a real-valued function that quantifies the similarity between two objects. 
+Although no single definition of a similarity measure exists, usually such 
+measures are in some sense the inverse of distance metrics: they take on large 
+values for similar objects and either zero or a negative value for very 
+dissimilar objects. 
+
 \begin{itemize}
     \item Similarity
     \begin{itemize}
@@ -214,6 +271,10 @@ the $k_th$ attributes (components) or data objects $p$ and $q$.
 
 \begin{theo}[Euclidean Distance]{theo:theo1}
 \label{eq:euclidean-distance}
+The distance between two points in Euclidean space 
+is the length of a line segment between the two points. It can be calculated 
+from the Cartesian coordinates of the points using the Pythagorean theorem. 
+In $n$ dimensions:
     \[
         distance = \sqrt{\sum_{k=1}^{n}(p_k-q_k)^2}
     \]
@@ -294,7 +355,7 @@ Let's define:
 \subsection{Simple Matching Coefficient}
 
 \begin{equation}
-    SMC = \frac{Number of matches}{Number of attributes}
+    SMC = \frac{\text{Number of matches}}{\text{Number of attributes}}
 \end{equation}
 \begin{equation}
     SMC = \frac{M_{00} + M_{11}}{M_{01} + M_{10} + M_{00} + M_{11}}
@@ -306,7 +367,7 @@ Let's define:
 The Jaccard Similarity/Coefficient is used for categorical attributes and sets.
 
 \begin{equation}
-    J = \frac{Number of M_{11}}{Number of non-both-zero attributes}
+    J = \frac{\text{Number of } M_{11}}{\text{Number of non-both-zero attributes}}
 \end{equation}
 \begin{equation}
     J = \frac{M_{11}}{M_{01} + M_{10} + M_{11}}
@@ -320,7 +381,7 @@ The Jaccard Similarity/Coefficient is used for categorical attributes and sets.
 If $\bm{A}$ and $\bm{B}$ are two documented vectors, then
 
 \begin{equation}
-    similarity = \cos(\theta) = \frac{\bm{A}\cdot\bm{B}}{\norm{\bm{A}} \norm{\bm{B}}} =
+    \text{similarity} = \cos(\theta) = \frac{\bm{A}\cdot\bm{B}}{\norm{\bm{A}} \norm{\bm{B}}} =
     \frac{\sum_{i=1}^n A_i B_i}{\sqrt{\sum_{i=1}^n A_i^2} \sqrt{\sum_{i=1}^n B_i^2}}
 \end{equation}
 
@@ -351,8 +412,6 @@ Data sampling is the main technique employed for data selection.
 It is often used for both the preliminary investigation of the data and the final data analysis.
 Statisticians sample because obtaining the entire set of data of interest is too expensive or time consuming.
 Sampling is used in data mining because processing the entire set of data of interest is too expensive or time consuming.
-
-\smallskip
 A good stategy for choosing the sample size is to aim for a sample size that is 10$\%$ of the population, as long as the sample size is smaller than 1000.
 It is also important to have a large enough sample size so that all attributes/groups are represented.
 
@@ -386,6 +445,11 @@ Types of sampling:
 
 \subsubsection{Reservoir Sampling}
 
+\textbf{The problem:}
+\medskip
+We want to perform a simple random sample (uniform random sample) on a 
+continuous stream of data of unknown size. Reservoir sampling achieves this.
+
 \begin{theo}[Reservoir Sampling]{theo:theo3}
     \label{eq:reservoir-sampling}
         Keep a reservoir of $r$ samples
@@ -400,8 +464,8 @@ Types of sampling:
             \end{enumerate}
         \end{enumerate}
 
-        This means that as $i$ increases, the probability of a new item being kept in the reservoir reduces.
-    \end{theo}
+    This means that as $i$ increases, the probability of a new item being kept in the reservoir reduces.
+\end{theo}
 
 \section{Dimensionality Reduction}
 \begin{itemize}
