@@ -48,13 +48,16 @@ the most information.
 \end{itemize}
 
 \section{Ensemble Methods}
+In addition to using pruning to construct more generalised trees. Two other
+methods exist to generalise models. These are ensemble and resample methods.
 Ensemble methods construct a set of classifiers from a given training data.
-The classification is done by predicting class values from previously unseen records by aggregating predictions made by multiple classifiers.
+The classification is done by predicting class values from previously unseen 
+records by aggregating predictions made by multiple classifiers.
 
 \bigskip
 The general idea of ensemble methods is to have the original training data and then:
 \begin{enumerate}
-    \item Create multiple data sets from the training data.
+    \item Create multiple data sets from the training data (resampling).
     \item Build multiple classifiers corresponding to the data sets.
     \item Combine the predictions of the classifiers.
 \end{enumerate}
@@ -68,7 +71,7 @@ The following equation calculates the probability that the ensemble classifier m
 
 \section{Manipulating the Training set}
 \subsubsection{Bagging}
-Bagging is sampling with replacement
+Bagging is sampling with replacement (bootstrapping).
 
 \begin{enumerate}
     \item Let $k$ be the number of bootstrap samples.
