@@ -1,6 +1,4 @@
-\section{Bayes Theorem}
-
-\subsection{Probability theory recap}
+\section{Probability theory recap}
 Probability theory is a branch of mathematics concerning numerical descriptions
 of how likely an event is to occur. Formalised by Andrey Kolmogorov in 1933.
 \cite{kolmogorov2018foundations} He formalised the modern interpretation of 
@@ -35,10 +33,36 @@ to the sum of the probabilities of the disjoint sets.
     P\left(\bigcup_{i = 1}^{\infty} E_i \right) = \sum_{i = 1}^{\infty} P(E_i)
 \end{equation}
 
+\section{Conditional Probability Recap}
+
+\begin{equation*}
+P(A \mid B) = \frac{P(A \cap  B)}{P(B)}
+\end{equation*}
+
+This is read as: Probability of event A given B. 
+
+\section{Bayes Theorem}
+
+Bayes theorem is derived from the definition of codnitional 
+probability. Given that
+
+\begin{equation*}
+    P(A \cap B) = P(B \cap A)
+\end{equation*}
+
+Since the intersection operator does not care about order. We can rearrange
+equation and get
+
+\begin{equation*}
+    P(A \cap B) = P(A \mid B)P(B) = P(B \mid A)P(A)
+\end{equation*}
+
+and we can substitute $P(A \cap B)$ with the equation above and get:
+
 \begin{theo}[]{theo:theo91}
 \label{eq:bayes}
 \[
-P(A|B) = \frac{P(B|A) P(A)}{P(B)}
+P(A \mid B) = \frac{P(B \mid A) P(A)}{P(B)}
 \]
 \end{theo}
 
