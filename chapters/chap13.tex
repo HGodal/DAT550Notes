@@ -32,8 +32,24 @@ let us replace the manual feature engineering that is done in traditional
 machine learning development. A lot of deep learning architectures for 
 representation learning have been researched and published in the last decade.
 
-\section{Advantages}
-Logistic regression with a polynomial hypothesis is often way to expensive. This is because each feature space has to be compared to each other, which leads to way too many input features to optimize.
+\section{Motivations for deep learning}
+
+Deep Learning let's us model nonlinear decision boundaries by introducing
+nonlinearities in the activation functions and deep architectures. This means 
+that deep learning is especially fit for problems that are too complex for 
+linear methods. One could question wether models like logistic regression could
+be used with polynomial decision boundaries to achieve the same thing. 
+The problem with using regression is that it achieves this by introducing
+polynomial features. The number of features the model must take into account
+is then 
+
+\begin{equation*}
+    O(n^b)
+\end{equation*}
+
+where $b$ is the polynomial degree that you want the model to incorporate. 
+For $100$ features, introducing $b = 2$ gives over 5000 features. This is not
+feasible. 
 
 \section{Artificial Neuron}
 \begin{itemize}
@@ -49,7 +65,11 @@ Logistic regression with a polynomial hypothesis is often way to expensive. This
 \caption{Artificial Neuron}
 \end{figure}
 
-The activation function is typically the sigmoid function, a hyperbolic tangent, or a rectified linear unit (ReLU).
+The activation function is typically the sigmoid function, a hyperbolic tangent, 
+or a rectified linear unit (ReLU). They must be a non-linear function because
+several layers of linear activation functions still yield a linear decision 
+boundary. Deep layers of non-linear activations yield complex decision
+boundaries.
 
 \section{Notations}
 \begin{itemize}
