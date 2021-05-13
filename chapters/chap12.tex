@@ -8,6 +8,21 @@ Multiple strategies can be used to check if overfitting occurs:
 
 \section{Regularization}
 
+Regularization is the process of adding information in order to solve an 
+ill-posed problem or to prevent overfitting. Normally in machine learning
+regularization is done by introducing a regularization term $R(f)$ to the loss
+function 
+
+\begin{equation*}
+    \min_f \sum_{i = 1}^n V(f(x_i), y_i) + \lambda R(f)
+\end{equation*}
+
+Where $V$ is the underlying loss function and $R(f)$ is typically chosen to 
+impose a penalty on the complexity of $f$. Regularization in one way imposes
+occam's razor on the solution, the principle that the simpler explanation 
+(model) is usually the best. Another perspective is the Bayesian one where 
+prior knowledge is applied to the model parameters.
+
 \begin{itemize}
     \item Small values for parameters correspond to a simpler hypothesis (you effectively get rid of some of the terms).
     \item A simpler hypothesis is less prone to overfitting.
@@ -17,7 +32,7 @@ Multiple strategies can be used to check if overfitting occurs:
 We can penalize some of the higher-order $\theta$ parameters and make them very small:
 
 \[
-    min\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}(x_i)-y_i\right)^2 + 1000\theta_3^2 + 1000\theta_4^2
+    \min\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}(x_i)-y_i\right)^2 + 1000\theta_3^2 + 1000\theta_4^2
 \]
 
 \subsection{Regularization on features}
