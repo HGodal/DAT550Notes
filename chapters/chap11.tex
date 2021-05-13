@@ -1,11 +1,52 @@
 \section{The Logistic Classifier}
 The logistic regression model is a binary classification problem.
-
-Linear regression for binary classification is not a viable option as the decision boundary will not separate the two categories correctly because of the nature of the mean square error.
-
+Linear regression for binary classification is not a viable option as the 
+decision boundary will not separate the two categories correctly because of 
+the nature of the mean square error.
 The classifier should output either $1$ or $0$, depending on the data.
+Where the classifier outputs the probability of the class given the 
+observations. The problem is that a regression model has a domain of $(-\infty, \infty)$
+and we want to somehow map this to the probability of observing a class which
+has the domain $(0, 1)$. To do this we introduce odds:
 
-For the classification hypothesis representation, we have:
+\begin{equation*}
+    \text{odds} = \frac{p}{1 - p}
+\end{equation*}
+
+The odds is the ratio of successes to failures. Colloquially we talk about odds
+all the time. Statements like \textit{For every 4 people 1 are...}. This is in
+an odds of $4:1$ or just $4$. The probability on the other hand for the same
+statement is \textit{1 out of 5 are...} or 
+\textit{There is a one in fifth chance of...}. 
+Odds have the domain of $(0, \infty)$, which is closer to that of a regression
+model but still not quite there. Taking the log of the odds 
+
+\begin{equation*}
+    \ell  = \log_{b} \frac{p}{1 - p}
+\end{equation*}
+
+we map the odds to the domain $(-\infty, \infty)$. Now, we assume a linear 
+relationship between the feature and the log-odds
+
+\begin{equation*}
+    \ell  = \log_{b} \frac{p}{1 - p} = \theta^T x
+\end{equation*}
+
+And we can now recover the odds by exponentiation the log odds
+
+\begin{equation*}
+    \frac{p}{1 - p} = b^{\theta^T x}
+\end{equation*}
+
+And by algebraic manipulation we get
+
+\begin{equation*}
+    p = \frac{1}{1 + b^{-\theta^T x}}
+\end{equation*}
+
+
+In most litterature, the classification hypothesis representation used for
+logistic regression uses $b = e$:
 
 \[
     h_\theta(x) = g(\theta^Tx) = \frac{1}{1+e^{-\theta^Tx}}
