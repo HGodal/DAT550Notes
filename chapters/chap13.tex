@@ -142,3 +142,67 @@ This is a general algorithm for the intuition behind gradient descent. But how
 do we achieve this for the multivariate case with several layers of activation?
 Let us introduce \textbf{backpropagation}
 
+\section{Backpropagation}
+
+When calculating partial derivatives for a neural network. One starts at the
+output layer and calculate the derivatives backwards. 
+One begins by calculating the error between the activations of the output and 
+the true state of nature.
+
+\begin{equation*}
+    \delta^{(L)} = a^{(L)} - y
+\end{equation*}
+
+then compute 
+
+\begin{equation*}
+    \delta^{(L-1)} = (\theta^{L-1})^T\delta^{(L)} \cdot g'(z^{(L-1)})
+\end{equation*}
+
+and do this until we reach layer $1$.
+
+\section{Hyperparameters and model enginnering}
+
+After understanding gradient descent, backpropagation, activation function etc,
+one is ready to start to engineer neural networks for ones needs. But there is 
+one problem, the hyperparameters. In this section some of these hyperparameters
+and challenges will be discussed.
+
+\subsection{Loss Functions in reality}
+
+These are very seldom convex. One may be able to change the loss function 
+to make it more convex, but this may not work. Evolutionary and stochastic
+algorithms that explore the loss function space may help. Selecting losses
+and ensuring that these are well behaved is a challenge when creating neural
+networks.
+
+\subsection{Initialisation of weights}
+
+Weights must be initialised and these must be initialised using a gaussian
+distrubution with mean at $0$. 
+
+\subsection{Learning Rate}
+Learning rate is a model hyperparameter that must be considered. If learning 
+rate is too low, the model does not explore the cost function space and
+converges in local minima. If it is too large, it may diverge and cause
+the exploding gradient problem. Learning rates may be changed over time
+and so on.
+
+\subsection{Mini-batches}
+Instead of computing gradients for individual samples, batches may be used 
+instead. This gives a smoother convergence and allows for larger learning
+rates. This also allows for parallelising comutation!
+
+\subsection{Overfitting and regularisation}
+Neural networks have a quite large hypothesis space and capacity. This allows 
+them to quickly overfit. Large amounts of data is needed to make to model
+generalisable. Regularisation may also help by introducing a penalty for 
+complexity. Dropout is a much used way to regularise neural networks.
+It simply removes nodes from the neural network during a training step and
+forces the model to learn using a smaller capacity.
+
+\medskip
+
+Early stopping is also an alternative, by using learning curves one should stop
+the training as soon as one observes that the accuracy of the testing set is 
+getting worse compared to the training accuracy.
