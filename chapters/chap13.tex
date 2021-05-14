@@ -44,11 +44,12 @@ polynomial features. The number of features the model must take into account
 is then 
 
 \begin{equation*}
-    O(n^b)
+    \sum_{i = 1}^k \binom{k + i - 1}{i} = \binom{k+n}{n} - 1
 \end{equation*}
 
-where $b$ is the polynomial degree that you want the model to incorporate. 
-For $100$ features, introducing $b = 2$ gives over 5000 features. This is not
+where $n$ is the polynomial degree that you want the model to incorporate and
+$k$ is the number of features/variables. \cite{mathoverflowquestion}
+For $100$ features, introducing $k = 2$ gives over 5000 features. This is not
 feasible. 
 
 \section{Artificial Neuron}
@@ -106,22 +107,38 @@ The second part is the regularization term. In this part, we sum all layers $L-1
     \frac{\lambda}{2m}\sum_{l=1}^{L-1}\sum_{i=1}^{s_t}\sum_{j=1}^{s_l+1}(\Theta_{ji}^{(l)})^2
 \]
 
-\section{Learn this better...}
+\section{How to minimise the cost function}
 
-% 31.30
+To minimise the cost function, we need to change the weights and biases of the 
+neural network such that this cost function is decreased. This is achieved using
+calculus and gradient descent. Recall from calculus that the gradient can be
+interpreted as the direction and rate of fastes increase. In gradient descent
+one therefore wish to iteratively go opposite to the gradient to reach a minima.
+When performing gradient, convergence to a local minima is guaranteed. 
+When the cost function is convex, all local minima is also global minima.
+The nature of the cost function is therefore important to consider. 
+Global optimisation is a field of mathematics concerning this and there exists 
+many deterministic and stochastic methods to achieve this.
 
-% \bigskip
-% \begin{figure}[H]
-% \centering
-% \includegraphics[scale=0.5]{figures/}
-% \caption{}
-% \end{figure}
+\section{Gradient Descent}
+Here, we will focus on gradient descent as a way to achieve minima. Consider the
+following algorithm:
 
-% \begin{theo}[]{theo:theo}
-% \label{eq:}
-% \[
-% a
-% \]
-% \end{theo}
-%
-% \section{}
+\begin{algorithm}[H]
+    \SetAlgoLined
+    \KwResult{Local og global minima}
+    Initialise $\theta \sim N(0, \sigma^2)$, $\epsilon$, $\alpha$.
+
+    \While{$\Delta J > \epsilon$}{
+        Compute gradient $\frac{\partial J(\theta)}{\partial \theta}$\;
+        Update weights $\theta = \theta - \alpha \frac{\partial J(\theta)}{\partial \theta}$\;
+    }
+
+    Return $\theta$
+    \caption{Gradient Descent}
+\end{algorithm}
+
+This is a general algorithm for the intuition behind gradient descent. But how 
+do we achieve this for the multivariate case with several layers of activation?
+Let us introduce \textbf{backpropagation}
+
