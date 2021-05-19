@@ -43,3 +43,75 @@ end.
     \caption{CNN architecture}
 \end{figure}
 
+\section{Number of weights after convolution layers}
+
+When working with CNNs and Neural Networks in general it is regular to talk
+about parameters. Parameters are weights in the neural network and is learned
+through backpropagation. Below is a list of the different layers and their
+parameters. The numbers and calculations are examples.
+
+\subsection{Size of output tensorf for a conv layer}
+
+Let us define
+
+\begin{gather*}
+    O = \text{Size (width) of output image} \\
+    I = \text{Size (width) of input inage} \\
+    K = \text{Size (width) of the kernels used in conv layer} \\
+    N = \text{Number of kernels} \\
+    S = \text{Stride of the conv layer} \\
+    P = \text{Padding} \\
+\end{gather*}
+
+The size $O$ is given Bayes
+
+\begin{equation}
+    O = \frac{I - K + 2P}{S} + 1
+\end{equation}
+
+\textbf{Example:} Let's say we have a image of size $32 \times 32 \times 3$,
+ $5$ kernels $5 \times 5 \times 3$, stride $1$ and padding $0$ we get
+
+\begin{equation*}
+    O = \frac{32 - 5 - 0}{1} + 1 = 28
+\end{equation*}
+
+the image is then $28 \times 28 \times 5$
+
+\subsection{Size of output of maxpool layer}
+
+\begin{gather*}
+    O = \text{Size (width) of output image} \\
+    I = \text{Size (width) of input inage} \\
+    S = \text{Stride of the convolution operation} \\
+    P = \text{Pool size}
+\end{gather*}
+
+The output size $O$ is then given by 
+
+\begin{equation*}
+    O = \frac{I - P}{S} + 1
+\end{equation*}
+
+\subsection{Number of parameters in a Conv layer}
+
+\begin{gather*}
+    B = \text{Number of biases in conv layer} \\
+    P = \text{Number of parameters of conv layer} \\
+    K = \text{Size of kernels used in conv layer} \\
+    N = \text{Number of kernels} \\
+    C = \text{Numberof channels of the input image} \\
+\end{gather*}
+
+The parameters is then calculated as
+
+\begin{equation*}
+    P = (K^2 \times C \times N) + B
+\end{equation*}
+
+Note: $B = N$ 
+
+\textbf{Example:} Assume that we have the same kernels as above then we get
+$P = 28^2 \times 3 \times 5 + 5 = 380$
+
+
