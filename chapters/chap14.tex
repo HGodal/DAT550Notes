@@ -1,0 +1,45 @@
+\section{History of CNN's}
+CNNs are a special kind of architecture that was popularised in the 2010s.
+It is vabuely based on biological processes and visual cortexes from biology.
+These kinds of networks is most commonly applied to visual imagery. 
+They are also applicable to other kinds of data. A simple rule of thumb 
+is that data where if swapping columns of the data matrix removes the 
+information contained in the data, convolutional neural networks may be used.
+
+\section{Convolution Layer}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/convolution.PNG}
+    \caption{Convolution layer}
+\end{figure}
+
+The central concept of CNNs (it is even in its name) is the convolution. 
+A convolution can be though of as passing a filter or kernel through the image
+to average it out. The selection of kernel determines what visual features is 
+extracted from the image. Using multiple filters to get different features
+is not uncommon.
+
+\medskip
+
+In many convolutional neural networks found in publications. These typically are
+very deep, has many different convolutions and pooling layers and ending in a 
+fully connected layer which. The layers before the fully connected layer 
+is there for simply extracting features and preprocessing the data. The fully 
+connected layer is there for inference.
+
+\medskip
+
+It is not uncommon to use existing CNN architectures from publications and
+remove the fully connected layer at the end to suit it for your own needs.
+In those cases one assume that the existing CNN architecture is able to collect
+high quality features for ones problem. This saves time on training the
+CNN part of the network and one can focus on training the inference layer at the
+end.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/CNN.PNG}
+    \caption{CNN architecture}
+\end{figure}
+
